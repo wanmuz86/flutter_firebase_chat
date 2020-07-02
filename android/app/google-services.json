@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "383138587196",
+    "firebase_url": "https://i40-chat-app.firebaseio.com",
+    "project_id": "i40-chat-app",
+    "storage_bucket": "i40-chat-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383138587196:android:f597faec4f735fcff25939",
+        "android_client_info": {
+          "package_name": "my.com.anak2u.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383138587196-vuipbvjtdi7i10utdfmfnlfmlgp9u2mq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX3Hp-YWUrU9JJpDwSZ50u7PQOmbyQbLY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383138587196-vuipbvjtdi7i10utdfmfnlfmlgp9u2mq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
