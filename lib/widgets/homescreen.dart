@@ -1,3 +1,4 @@
+import 'package:firebase_chat_app/widgets/chat.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 class HomeScreen extends StatefulWidget {
@@ -45,7 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
     } else {
       return ListTile(title: Text(document['email']),
       onTap:(){
-        print(document['email']);
+        Navigator.push(context,MaterialPageRoute(builder: (context)=>
+        Chat(peerId:document.documentID)
+        ));
       }
       );
     }
