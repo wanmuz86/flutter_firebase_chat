@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'forgot_password.dart';
 import 'register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'homescreen.dart';
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -13,6 +15,7 @@ class _LoginState extends State<Login> {
   final TextEditingController passwordController = TextEditingController();
   bool _success;
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  SharedPreferences prefs;
   @override
   
   Widget build(BuildContext context) {
@@ -59,9 +62,15 @@ class _LoginState extends State<Login> {
           final FirebaseUser user = (await _auth.signInWithEmailAndPassword(email: 
           emailController.text, password: passwordController.text)).user;
           if (user!=null){
-            setState(() {
-              _success = true;
-            });
+            // Fix the prefs part!!
+            print('succesfully logged in!');
+          prefs = await SharedPreferences.getInstance();
+           await prefs.setString('id', user.uid);
+           await prefs.setString('email', user.email);
+           print('finish save!');
+          Navigator.push(context, 
+          MaterialPageRoute(builder: (context) => 
+          HomeScreen(currentUserId: user.uid)));
           }
           else {
             setState(() {

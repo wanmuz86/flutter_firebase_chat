@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -56,7 +56,14 @@ class _RegisterState extends State<Register> {
 final FirebaseUser user = (await _auth.createUserWithEmailAndPassword(
   email: emailCotroller.text, password: passwordController.text)).user;
   if (user!= null){
+      Firestore.instance.collection('users').document(user.uid).setData({
+          'email': user.email,
+          'id': user.uid,
+          'createdAt': DateTime.now().millisecondsSinceEpoch.toString(),
+          'chattingWith': null
+        });
     setState(() {
+
       _success = true;
 
     });
